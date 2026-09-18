@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EditVault — CapCut Editing Hub</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      background: #080808;
+      color: white;
+    }
+    /* NAVBAR */
+    nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      border-bottom: 1px solid #222;
+      background: #090909;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+    }
+    .logo span {
+      color: #777;
+    }
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      color: white;
+    }
+    /* HERO */
+    .hero {
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at center, #222 0%, #080808 55%);
+    }
+    .hero h1 {
+      font-size: clamp(45px, 10vw, 90px);
+      font-weight: 1000;
+      letter-spacing: -4px;
+    }
+    .hero h1 span {
+      color: #777;
+    }
+    .hero p {
+      max-width: 600px;
+      margin-top: 15px;
+      color: #999;
+      line-height: 1.6;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      cursor: pointer;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px 22px;
+      font-weight: bold;
+    }
+    .primary {
+      background: white;
+      color: black;
+    }
+    .secondary {
+      background: #151515;
+      color: white;
+      border: 1px solid #333;
+    }
+    /* SECTIONS */
+    section {
+      width: 86%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 0;
+    }
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      color: #777;
+      margin-bottom: 30px;
+    }
+    /* SEARCH */
+    .search {
+      width: 100%;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #292929;
+      background: #111;
+      color: white;
+      outline: none;
+      margin-bottom: 25px;
+    }
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 15px;
+      padding: 22px;
+      transition: .2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #444;
+    }
+    .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin-bottom: 9px;
+    }
+    .card p {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      background: #1b1b1b;
+      color: #aaa;
+      font-size: 11px;
+    }
+    /* TUTORIAL */
+    .tutorial {
+      background: #101010;
+      border: 1px solid #222;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 15px;
+    }
+    .tutorial h3 {
+      margin-bottom: 10px;
+    }
+    .tutorial p {
+      color: #888;
+      line-height: 1.6;
+    }
+    .steps {
+      margin-top: 15px;
+      padding-left: 20px;
+      color: #aaa;
+      line-height: 2;
+    }
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #222;
+      text-align: center;
+      padding: 35px;
+      color: #555;
+    }
+    @media(max-width: 600px) {
+      nav {
+        padding: 0 20px;
+      }
+      nav div:last-child {
+        display: none;
+      }
+      section {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Edit<span>Vault</span></div>
+    <div>
+      <a href="#shakes">Shakes</a>
+      <a href="#effects">Effects</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#presets">Presets</a>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>EDIT<span>VAULT</span></h1>
+    <p>
+      A collection of CapCut editing tutorials, shakes,
+      transitions, effects, presets and editing tips.
+    </p>
+    <div class="buttons">
+      <button class="primary" onclick="goTo('shakes')">
+        Browse Shakes
+      </button>
+      <button class="secondary" onclick="goTo('tutorials')">
+        Tutorials
+      </button>
+    </div>
+  </div>
+  <!-- SHAKES -->
+  <section id="shakes">
+    <h2 class="section-title">Shakes</h2>
+    <p class="section-subtitle">
+      Different shake styles you can recreate in CapCut.
+    </p>
+    <input
+      class="search"
+      id="search"
+      type="text"
+      placeholder="Search shakes, effects, tutorials..."
+      onkeyup="searchCards()"
+    >
+    <div class="grid">
+      <div class="card searchable">
+        <div class="icon">📳</div>
+        <h3>Basic Shake</h3>
+        <p>Simple movement shake for clips and beat drops.</p>
+        <span class="tag">Beginner</span>
+      </div>
+      <div class="card searchable">
+        <div class="icon">⚡</div>
+        <h3>Velocity Shake</h3>
+        <p>Fast shake designed for velocity and speed edits.</p>
+        <span class="tag">Intermediate</span>
+      </div>
+      <div class="card searchable">
+        <div class="icon">💥</div>
+        <h3>Impact Shake</h3>
+        <p>Heavy movement for punches, hits and transitions.</p>
+        <span class="tag">Intermediate</span>
+      </div>
+      <div class="card searchable">
+        <div class="icon">🌪️</div>
+        <h3>Spin Shake</h3>
+        <p>Combines rotation with movement for stronger transitions.</p>
+        <span class="tag">Advanced</span>
+      </div>
+      <div class="card searchable">
+        <div class="icon">🔊</div>
+        <h3>Beat Shake</h3>
+        <p>Match your shake timing to the beat of the audio.</p>
+        <span class="tag">Advanced</span>
+      </div>
+      <div class="card searchable">
+        <div class="icon">🎯</div>
+        <h3>Micro Shake</h3>
+        <p>A smaller shake that keeps the clip clean.</p>
+        <span class="tag">Beginner</span>
+      </div>
+    </div>
+  </section>
+  <!-- EFFECTS -->
+  <section id="effects">
+    <h2 class="section-title">Effects</h2>
+    <p class="section-subtitle">
+      Editing effects and ideas to try.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">✨</div>
+        <h3>Glow</h3>
+        <p>Add glow around your subject for a brighter look.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌀</div>
+        <h3>Motion Blur</h3>
+        <p>Use blur to make fast movement feel smoother.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Color Grade</h3>
+        <p>Adjust contrast, saturation and exposure.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💫</div>
+        <h3>Flash</h3>
+        <p>Use quick flashes between clips or on beats.</p>
+      </div>
+    </div>
+  </section>
+  <!-- TUTORIALS -->
+  <section id="tutorials">
+    <h2 class="section-title">Tutorials</h2>
+    <p class="section-subtitle">
+      Quick guides for making better edits.
+    </p>
+    <div class="tutorial">
+      <h3>🔥 How to make a basic shake</h3>
+      <p>
+        A simple starting point for learning shake edits.
+      </p>
+      <ol class="steps">
+        <li>Add your video to the timeline.</li>
+        <li>Split the clip where you want the shake.</li>
+        <li>Add keyframes for position and rotation.</li>
+        <li>Move the keyframes close together.</li>
+        <li>Increase the movement for a stronger shake.</li>
+      </ol>
+    </div>
+    <div class="tutorial">
+      <h3>⚡ How to make a beat edit</h3>
+      <p>
+        Sync your cuts and effects with the music.
+      </p>
+      <ol class="steps">
+        <li>Add your song.</li>
+        <li>Find the main beats.</li>
+        <li>Split clips on the beats.</li>
+        <li>Add effects to important hits.</li>
+        <li>Preview and adjust the timing.</li>
+      </ol>
+    </div>
+    <div class="tutorial">
+      <h3>💨 Smooth velocity edit</h3>
+      <p>
+        Make your clips speed up and slow down smoothly.
+      </p>
+      <ol class="steps">
+        <li>Select your clip.</li>
+        <li>Open the speed controls.</li>
+        <li>Use a custom speed curve.</li>
+        <li>Slow the clip before the main moment.</li>
+        <li>Speed it up into the transition.</li>
+      </ol>
+    </div>
+  </section>
+  <!-- PRESETS -->
+  <section id="presets">
+    <h2 class="section-title">Presets</h2>
+    <p class="section-subtitle">
+      Save your favorite editing setups here.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h3>Velocity Pack</h3>
+        <p>Speed-based editing setup.</p>
+        <span class="tag">Preset</span>
+      </div>
+      <div class="card">
+        <div class="icon">📳</div>
+        <h3>Shake Pack</h3>
+        <p>Multiple shake styles for different clips.</p>
+        <span class="tag">Preset</span>
+      </div>
+      <div class="card">
+        <div class="icon">🌈</div>
+        <h3>Color Pack</h3>
+        <p>Different color grading ideas.</p>
+        <span class="tag">Preset</span>
+      </div>
+    </div>
+  </section>
+  <footer>
+    EditVault © 2026 — Made for editors.
+  </footer>
+  <script>
+    function goTo(id) {
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+    function searchCards() {
+      const input =
+        document.getElementById("search").value.toLowerCase();
+      const cards =
+        document.querySelectorAll(".searchable");
+      cards.forEach(card => {
+        const text =
+          card.innerText.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
